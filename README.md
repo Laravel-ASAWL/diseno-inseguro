@@ -25,12 +25,15 @@ El patrón Repository actúa como una capa de abstracción entre la lógica de n
 
 Laravel no impone una estructura rígida para los repositorios, pero una implementación común implica:
 
--   Controlador (Controller): Gestiona las solicitudes HTTP, delega la lógica de negocio a los servicios y devuelve las respuestas.
--   Servicio (Service): Contiene la lógica de negocio de la aplicación. Interactúa con los repositorios para realizar operaciones de datos.
--   Interfaz (Interface): Define un contrato para las operaciones de datos que el repositorio debe implementar.
--   Repositorio (Repository): Implementa la interfaz y proporciona métodos para acceder y manipular los datos del modelo.
--   Modelo (Model): Representa la estructura de los datos y, a menudo, interactúa directamente con la base de datos a través de Eloquent ORM en Laravel.
--   Helper: Contiene funciones auxiliares que pueden ser utilizadas por otros componentes.
+**Controlador (Controller):** Gestiona las solicitudes HTTP, delega la lógica de negocio a los servicios y devuelve las respuestas.
+
+**Servicio (Service):** Contiene la lógica de negocio de la aplicación. Interactúa con los repositorios para realizar operaciones de datos.
+
+**Interfaz (Interface):** Define un contrato para las operaciones de datos que el repositorio debe implementar.
+
+**Repositorio (Repository):** Implementa la interfaz y proporciona métodos para acceder y manipular los datos del modelo.
+
+**Modelo (Model):** Representa la estructura de los datos y, a menudo, interactúa directamente con la base de datos a través de Eloquent ORM en Laravel.
 
 <p align="center">
 <img src="public/repository-pattern.jpg" alt="Repository Pattern" width="500">
