@@ -49,3 +49,200 @@ Laravel no impone una estructura rígida para los repositorios, pero una impleme
 6.  El repositorio devuelve los datos al servicio.
 7.  El servicio procesa los datos y los devuelve al controlador.
 8.  El controlador devuelve una respuesta HTTP al cliente.
+
+### Código de ejemplo
+
+**Interface**
+
+```php
+namespace App\Contracts;
+
+interface UserInterface
+{
+    public function index();
+
+    public function store($data);
+
+    public function show($id);
+
+    public function update($data, $id);
+
+    public function destroy($id);
+}
+```
+
+**Repositorio**
+
+```php
+namespace App\Repositories;
+
+use App\Contracts\UserInterface;
+use App\Models\User;
+
+class UserRepository implements UserInterface
+{
+    protected $user;
+
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+
+    public function index()
+    {
+        $users = $this->user::all();
+
+        return $users;
+    }
+
+    public function store($data)
+    {
+        $user = $this->user::create($data);
+
+        return $user;
+    }
+
+    public function show($id)
+    {
+        $user = $this->user::findOrFail($id);
+
+        return $user;
+    }
+
+    public function update($data, $id)
+    {
+        $user = $this->user::findOrFail($id);
+        $user->fill($data);
+        $user->save();
+
+        return $user;
+    }
+
+    public function destroy($id)
+    {
+        $user = $this->user::findOrFail($id);
+        $user->delete();
+
+        return $user;
+    }
+}
+```
+
+**Servicio**
+
+```php
+namespace App\Services;
+
+use App\Contracts\UserInterface;
+
+class UserService
+{
+    protected $user;
+
+    public function __construct(UserInterface $user)
+    {
+        $this->user = $user;
+    }
+
+    public function index()
+    {
+        $users = $this->user->index();
+
+        return $users;
+    }
+
+    public function store($data)
+    {
+        $user = $this->user->store($data);
+
+        return $user;
+    }
+
+    public function show($id)
+    {
+        $user = $this->user->show($id);
+
+        return $user;
+    }
+
+    public function update($data, $id)
+    {
+        $user = $this->user->update($data, $id);
+
+        return $user;
+    }
+
+    public function destroy($id)
+    {
+        $user = $this->user->destroy($id);
+
+        return $user;
+    }
+}
+```
+
+**Controlador**
+
+```php
+namespace App\Http\Controllers;
+
+use App\Services\UserService;
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    protected $user;
+
+    public function __construct(UserService $user)
+    {
+        $this->user = $user;
+    }
+
+    public function index()
+    {
+        $users = $this->user->index();
+
+        return view('users.index', ['users' => $users]);
+    }
+
+    public function create()
+    {
+        return view('users.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->user->store($request->all());
+
+        return redirect('/users');
+    }
+
+    public function show($id)
+    {
+        $user = $this->user->show($id);
+
+        return view('users.show', ['user' => $user]);
+    }
+
+    public function edit($id)
+    {
+        $user = $this->user->show($id);
+
+        return view('users.edit', ['user' => $user]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->user->update($request->all(), $id);
+
+        return redirect('/users');
+    }
+
+    public function destroy($id)
+    {
+        $this->user->destroy($id);
+
+        return redirect('/users');
+    }
+}
+```
