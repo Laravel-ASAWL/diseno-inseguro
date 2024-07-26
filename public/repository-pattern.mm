@@ -1,7 +1,7 @@
 <map version="freeplane 1.11.5">
 <!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
-<node TEXT="Patrón Repository" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_1090958577" CREATED="1409300609620" MODIFIED="1722029334404" CHILD_NODES_LAYOUT="TOPTOBOTTOM_BOTHSIDES_BOTTOM"><hook NAME="MapStyle" background="#2e3440">
-    <properties show_icon_for_attributes="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false" associatedTemplateLocation="template:/dark_nord_template.mm"/>
+<node TEXT="Rutas" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_1090958577" CREATED="1409300609620" MODIFIED="1722030304839" CHILD_NODES_LAYOUT="TOPTOBOTTOM_BOTHSIDES_BOTTOM"><hook NAME="MapStyle" background="#2e3440">
+    <properties show_icon_for_attributes="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" associatedTemplateLocation="template:/dark_nord_template.mm" fit_to_viewport="false"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -78,16 +78,22 @@
 </hook>
 <hook NAME="accessories/plugins/AutomaticLayout.properties" VALUE="ALL"/>
 <font BOLD="true"/>
-<node TEXT="Solicitud HTTP" POSITION="bottom_or_right" ID="ID_1540832079" CREATED="1722029403864" MODIFIED="1722029437894">
-<node TEXT="Controlador" ID="ID_655419420" CREATED="1722029442323" MODIFIED="1722029450843">
-<node TEXT="Servicio" ID="ID_1783471503" CREATED="1722029455098" MODIFIED="1722029462723">
-<node TEXT="Interface" ID="ID_687128160" CREATED="1722029467433" MODIFIED="1722029513013">
-<node TEXT="Repositorio" ID="ID_812541263" CREATED="1722029516063" MODIFIED="1722029522753">
-<node TEXT="Modelo" ID="ID_231666746" CREATED="1722029524873" MODIFIED="1722029529595"/>
+<node TEXT="" POSITION="bottom_or_right" ID="ID_429057505" CREATED="1722030352741" MODIFIED="1722030352741">
+<hook NAME="FirstGroupNode"/>
+</node>
+<node TEXT="Controlador" POSITION="bottom_or_right" ID="ID_1155205287" CREATED="1722030307309" MODIFIED="1722030311109">
+<node TEXT="Servicio" ID="ID_538564316" CREATED="1722030312799" MODIFIED="1722030317519">
+<node TEXT="Interfaz" ID="ID_1445253342" CREATED="1722030319212" MODIFIED="1722030326406">
+<node TEXT="Repositorio" ID="ID_530019598" CREATED="1722030330069" MODIFIED="1722030335779">
+<node TEXT="Modelo" ID="ID_988888086" CREATED="1722030340479" MODIFIED="1722030344889"/>
 </node>
 </node>
 </node>
 </node>
+<node TEXT="" POSITION="bottom_or_right" ID="ID_1005982485" CREATED="1722030352741" MODIFIED="1722030352741">
+<hook NAME="SummaryNode"/>
+<hook NAME="AlwaysUnfoldedNode"/>
+<node TEXT="Patrón Repository" ID="ID_1778867867" CREATED="1722030352741" MODIFIED="1722030368969"/>
 </node>
 </node>
 </map>
